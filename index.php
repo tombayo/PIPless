@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * PIP v0.5.3
  */
 
@@ -12,15 +12,12 @@ define('APP_DIR', ROOT_DIR .'application/');
 
 // Includes
 require(APP_DIR .'config/config.php');
-require(ROOT_DIR .'system/model.php');
-require(ROOT_DIR .'system/view.php');
-require(ROOT_DIR .'system/controller.php');
-require(ROOT_DIR .'system/pip.php');
+require(ROOT_DIR .'system/pl.php');
 
 // Define base URL
 global $config;
 define('BASE_URL', $config['base_url']);
 
-pip();
+PIPless:go();
 
 ?>

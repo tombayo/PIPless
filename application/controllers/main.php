@@ -2,9 +2,8 @@
 
 class Main extends Controller {
 	
-	function index()
-	{
-		$template = $this->loadView('main_view');
+	public static function index() {
+		$template = Load::view('main_view');
 		$template->render();
 	}
     
