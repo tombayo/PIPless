@@ -1,10 +1,8 @@
 <?php include('header.php'); ?>
 	
-    <div id="content">
-        
-        <h1>Welcome to PIP</h1>
-        <p>To get started please read the documentation at <a href="http://pip.dev7studios.com/">http://pip.dev7studios.com</a>.</p>
-        
+    <div class="container">
+      <h1>Welcome to PIPless</h1>
+      <p>Check out <a href="https://github.com/tombayo/PIPless">https://github.com/tombayo/PIPless</a> to learn about this project.</p>
     </div>
 
 <?php include('footer.php'); ?>
