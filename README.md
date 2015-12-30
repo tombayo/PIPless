@@ -1,27 +1,24 @@
-#PIP
+#PIPless
 
-PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use.
-
-Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for more information and documentation.
+PIPless is a tiny application framework forked from [Gilbert Pellegrom's PIP](http://gilbitron.github.com/PIP/). PIPless is modified to use GET-variables and static objects for an even simpler framework. It is also designed to work directly with RedBeanPHP [http://readbeanphp.com](http://redbeanphp.com).
 
 ## Requirements
 
 * PHP 5.1 or greater
-* MySQL 4.1.2 or greater
-* The mod_rewrite Apache module
 
 ## Installation
 
-* Download PIP and extract
+* Download PIPless and extract
 * Navigate to `application/config/config.php` and fill in your `base_url`
 * You are ready to rock! Point your browser to your `base_url` and hopefully see a welcome message.
+* If you want to use a database just add RedBeansPHP to `application/plugins` and use Controller::initDB()
 
 ## Documentation
 
-Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) to see the documentation.
+Visit [https://github.com/tombayo/PIPless](https://github.com/tombayo/PIPless) to see the documentation.
 
 ## License
 
-PIP is released under the MIT license.
+PIPless is released using GPLv3
 
-Want to say thanks? [Consider tipping me](https://www.gittip.com/gilbitron).
+Please direct all credit to [Gilbert Pellegrom and PIP](http://gilbitron.github.com/PIP/)
