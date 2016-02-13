@@ -18,6 +18,6 @@ require(ROOT_DIR .'system/pl.php');
 global $config;
 define('BASE_URL', $config['base_url']);
 
-PIPless:go();
+PIPless::go();
 
 ?>
