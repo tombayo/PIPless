@@ -1,6 +1,6 @@
 <?php
 /**
- * PIP v0.5.3
+ * PIPless v1.0.1
  */
 
 //Start the Session
@@ -18,6 +18,6 @@ require(ROOT_DIR .'system/pl.php');
 global $config;
 define('BASE_URL', $config['base_url']);
 
-PIPless:go();
+PIPless::go();
 
 ?>
