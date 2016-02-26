@@ -1,6 +1,6 @@
 <?php
 
-class Error extends Controller {
+class Nopage extends Controller {
 	
 	public static function index() {
 	  self::error404();
