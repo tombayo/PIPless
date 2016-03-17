@@ -1,6 +1,7 @@
 <?php 
 
 $config['base_url'] = ''; // Base URL including trailing slash (e.g. http://localhost/)
+$config['url_rewrite'] = false; // Selects whether or not url rewriting is enabled on the webserver
 
 $config['default_controller'] = 'main'; // Default controller to load
 $config['error_controller'] = 'nopage'; // Controller used for errors (e.g. 404, 500 etc)
