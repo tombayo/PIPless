@@ -4,7 +4,7 @@ PIPless is a tiny application framework forked from [Gilbert Pellegrom's PIP](ht
 
 ## Requirements
 
-* PHP 5.1 or greater
+* PHP 5.4 or greater
 
 ## Installation
 
