@@ -4,14 +4,14 @@ PIPless is a tiny application framework forked from [Gilbert Pellegrom's PIP](ht
 
 ## Requirements
 
-* PHP 5.1 or greater
+* PHP 5.4 or greater
 
 ## Installation
 
 * Download PIPless and extract
 * Navigate to `application/config/config.php` and fill in your `base_url`
-* You are ready to rock! Point your browser to your `base_url` and hopefully see a welcome message.
-* If you want to use a database just add RedBeansPHP to `application/plugins` and use Controller::initDB()
+* Point your browser to your `base_url` and hopefully you'll see a welcome message.
+* If you want to use a database just fetch the [RedBeanPHP Toolbox](http://redbeanphp.com/api/class-RedBeanPHP.ToolBox.html) using Controller::initDB()
 
 ## Documentation
 

@@ -1,9 +1,9 @@
 <?php
 /**
-* PIPless v1.0.1
+* PIPless v1.0.2
 * 
 * @package  PIPless
-* @version  1.0.1
+* @version  1.0.2
 * @desc     PIPless is a tiny application framework forked from Gilbert Pellegrom's PIP. PIPless is modified to use GET-variables and static objects for an even simpler framework. It is also designed to work directly with RedBeanPHP (redbeanphp.com)
 * @author   @tombayo <me@tombayo.com>
 * @license  GPLv3
@@ -15,6 +15,7 @@ class PIPless {
   * Called to execute the framework.
   * 
   * Will load a controller based on the $_GET['p']-variable.
+  * If url rewriting is turned on in the config-file, a controller is loaded based on the url instead.
   * 
   * @author  Gilbert Pellegrom, Dev7studios
   * @license MIT
@@ -31,7 +32,18 @@ class PIPless {
     // Set our defaults
     $controller = $config['default_controller'];
     $action = 'index';
-    $url = isset($_GET['p']) ? $_GET['p'] : '';
+    $argument = '';
+    
+    if ($config['url_rewrite']) {
+      // Get request url and script url
+      $request_url = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '';
+      $script_url  = (isset($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : '';
+       
+      // Get our url path and trim the / of the left and the right
+      if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '\/', str_replace('index.php', '', $script_url)) .'/', '', $request_url, 1), '/');
+    } else {
+      $url = isset($_GET['p']) ? $_GET['p'] : '';
+    }
     
 	  // Split the url into segments
 	  $segments = explode('/', $url);
@@ -39,6 +51,7 @@ class PIPless {
 	  // Do our default checks
 	  if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
 	  if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
+	  if(isset($segments[1]) && $segments[1] != '') $argument = $segments[2];
 
 	  // Get our controller file
     $path = APP_DIR . 'controllers/' . $controller . '.php';
@@ -49,11 +62,11 @@ class PIPless {
       require_once(APP_DIR . 'controllers/' . $controller . '.php');
 	  }
       
-    // Check the action exists
-    if(!method_exists($controller, $action)) {
+    // Check if the action is callable
+    if(!is_callable([$controller, $action])) {
       $action = 'index';
     }
-    die($controller::$action());
+    die($controller::$action($argument));
   }
 }
 
@@ -168,6 +181,7 @@ interface Controller_demands {
 * Parent class for Controllers.
 * Implements the Controller_demands interface to force error if the
 * controller don't have an index() method.
+* @abstract     To push the interface on the children of this class, and not on this class itself.
 */
 abstract class Controller implements Controller_demands {
     
@@ -179,22 +193,24 @@ abstract class Controller implements Controller_demands {
   * @return void
   */
   protected static function redirect($loc) {
-    global $config;
-    header('Location: '. $config['base_url'] . $loc);
+    header('Location: '. BASE_URL . $loc);
   }
   
   /**
   * Initialize RedBeanPHP ORM for mysql.
-  * @todo This method should be implemented in a more framework-like way
+  * Then returns the Toolbox, for more details see:
+  * @link http://redbeanphp.com/api/class-RedBeanPHP.ToolBox.html
   * 
-  * @return void
+  * 
+  * @return RedBeanPHP/ToolBox
   */
   protected static function initDB() {
     global $config;
     if (!class_exists('R')) {
       Load::plugin("rb"); // Loads RedBeanPHP, our ORM
-      R::setup('mysql:host='.$config['db_host'].';dbname='.$config['db_name'],$config['db_username'],$config['db_password']); // Setup RedBeanPHP
     }
+    R::setup('mysql:host='.$config['db_host'].';dbname='.$config['db_name'],$config['db_username'],$config['db_password']); // Setup RedBeanPHP
+    return R::getToolBox(); // Returns RedBeanPHP's toolbox
   }
 }
 ?>
