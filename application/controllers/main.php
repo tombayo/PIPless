@@ -1,12 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 class Main extends Controller {
-	
-	public static function index() {
-		$template = Load::view('main_view');
-		$template->render();
-	}
-    
+	use BasicWebpage;
 }
 
 ?>

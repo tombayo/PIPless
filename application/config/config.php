@@ -1,14 +1,71 @@
-<?php 
+<?php declare(strict_types=1);
+/**
+ * Configuration file for the application.
+ * 
+ * 
+ * @package pipless
+ * @subpackage config
+ */
 
-$config['base_url'] = ''; // Base URL including trailing slash (e.g. http://localhost/)
-$config['url_rewrite'] = false; // Selects whether or not url rewriting should be used for this application
+/**
+ * Base URL including trailing slash (e.g. http://localhost/)
+ * @global string $config['base_url']
+ */
+$config['base_url'] = 'http://localhost/';
+/**
+ * Selects whether or not url rewriting should be used for this application
+ * @global bool $config['url_rewrite']
+ */
+$config['url_rewrite'] = false; 
+/**
+ * Selects if the application should force the use of https
+ * @global bool $config['force_https']
+ */
+$config['force_https'] = false;
+/**
+ * Sets the script default error-reporting setting
+ * @global bool $config['report_errors']
+ */
+$config['report_errors'] = true;
+/**
+ * The default controller to load
+ * @global string $config['default_controller']
+ */
+$config['default_controller'] = 'main';
+/**
+ * Controller used for errors (e.g. 404, 500 etc)
+ * @global string $config['error_controller']
+ */
+$config['error_controller'] = 'nopage';
+/**
+ * ISO 639-1 Language Code for the webcontent
+ * @global string $config['language']
+ */
+$config['language'] = 'en';
+date_default_timezone_set('Europe/Paris');
 
-$config['default_controller'] = 'main'; // Default controller to load
-$config['error_controller'] = 'nopage'; // Controller used for errors (e.g. 404, 500 etc)
-
-$config['db_host'] = ''; // Database host (e.g. localhost)
-$config['db_name'] = ''; // Database name
-$config['db_username'] = ''; // Database username
-$config['db_password'] = ''; // Database password
-
-?>
+/**
+ * Database host (e.g. localhost)
+ * @global string $config['db_host']
+ */
+$config['db_host'] = 'localhost';
+/**
+ * Database name
+ * @global string $config['db_name']
+ */
+$config['db_name'] = 'dbname';
+/**
+ * Database username
+ * @global string $config['db_username']
+ */
+$config['db_username'] = 'user';
+/**
+ * Database password
+ * @global string $config['db_password']
+ */
+$config['db_password'] = 'pass';
+/**
+ * Prevents changes to the database schema
+ * @global string $config['db_freeze']
+ */
+$config['db_freeze'] = true; 
