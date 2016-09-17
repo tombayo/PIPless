@@ -7,7 +7,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/style.css">
     <title><?php echo ucfirst($controller); ?></title>
   </head>
   <body>
