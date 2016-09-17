@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-class Test extends Controller {
+class test extends Controller {
 	public static function index() {
 	  global $config;
 	  $template = Load::view('view.'.__CLASS__);

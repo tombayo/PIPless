@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-class Main extends Controller {
+class main extends Controller {
 	use BasicWebpage;
 }
 

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-class Json extends Controller {
+class json extends Controller {
 	use JsonController, Objectify;
 	
 	public static function getdata(string $input) {
