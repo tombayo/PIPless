@@ -25,7 +25,14 @@ define('APP_DIR', ROOT_DIR .'application/');
  */
 require(APP_DIR .'config/config.php');
 /**
- * Loads PIPless' system file 
+ * Load the system-files
+ */
+require(ROOT_DIR .'system/Controller.php');
+require(ROOT_DIR .'system/Load.php');
+require(ROOT_DIR .'system/Model.php');
+require(ROOT_DIR .'system/View.php');
+/**
+ * Loads PIPless' main system file 
  */
 require(ROOT_DIR .'system/pl.php');
 
@@ -37,6 +44,13 @@ global $config;
  * A constant for the project's base url.
  */
 define('BASE_URL', $config['base_url']);
+
+/**
+ * Loads all the defined extras
+ */
+foreach($config['include_extras'] as $extra) {
+  require(APP_DIR .'extras/'.$extra.'.php');
+}
 
 /**
  * Sets the ini-file's display_errors variable and sets our error-reporting level.

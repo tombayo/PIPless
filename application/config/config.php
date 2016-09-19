@@ -38,6 +38,13 @@ $config['default_controller'] = 'main';
  */
 $config['error_controller'] = 'nopage';
 /**
+ * Specifies what to load from the folder 'extras'. Make sure to load the stuff
+ * which is needed by any of the controllers. The application will break if an
+ * extra is missing when called upon.
+ * @global array $config['include_extras'] 
+ */
+$config['include_extras'] = ['BasicWebpage', 'JsonController', 'Objectify'];
+/**
  * ISO 639-1 Language Code for the webcontent
  * @global string $config['language']
  */

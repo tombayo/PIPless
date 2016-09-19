@@ -1,17 +1,5 @@
 <?php include('view.header.php'); ?>
-	<nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <p class="navbar-text">PIPless</p>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Main</a></li>
-        <li><a href="?p=json">JSON</a></li>
-        <li><a href="?p=json/getdata/demo">JSONdata</a></li>
-        <li><a href="?p=test">Test</a></li>
-      </ul>
-    </div>
-  </nav>
+	<?php include('view.nav.php'); ?>
   <div class="container">
     <div class="page-header">
   		<h1>Welcome to PIPless</h1>
