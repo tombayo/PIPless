@@ -34,7 +34,7 @@ require(ROOT_DIR .'system/View.php');
 /**
  * Loads PIPless' main system file 
  */
-require(ROOT_DIR .'system/pl.php');
+require(ROOT_DIR .'system/PIPless.php');
 
 /**
  * @global array $config
