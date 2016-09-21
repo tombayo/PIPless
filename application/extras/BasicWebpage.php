@@ -19,8 +19,19 @@ trait BasicWebpage {
   public static function index() {
     global $config;
     $template = Load::view('view.'.__CLASS__);
-    $template->set('controller', __CLASS__);
-    $template->set('lang', $config['language']);
+    $template = self::commonTemplateVars($template);
     $template->render();
+  }
+  
+  private static function commonTemplateVars(View $view):View {
+    global $config;
+  
+    $view->set('controller', __CLASS__);
+    $view->set('lang', $config['language']);
+    $view->set('url', function ($controller,$method='',$argument='',$get=[]) {
+      return parent::createUrl($controller,$method,$argument,$get);
+    });
+  
+      return $view;
   }
 }
