@@ -4,6 +4,7 @@ PIPless is a tiny MVC application framework forked from [Gilbert Pellegrom's PIP
 
 ## Features
 
+* Tiny, Simple, and Easy to learn/understand.
 * PHP 7 with strict typing as standard.
 * Select between using `mod_rewrite` or simply a GET-variable for navigation.
 * By using the latest and most advance OOP-features in PHP, PIPless aims to reduce code repetition and make the framework, along with the applications using it, more maintainable.
