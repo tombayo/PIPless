@@ -23,6 +23,11 @@ $config['url_rewrite'] = false;
  */
 $config['force_https'] = false;
 /**
+ * Sets the lifetime of sessions in seconds.
+ * @global integer $config['session_lifetime']
+ */
+$config['session_lifetime'] = 60*60*24*31;
+/**
  * Sets the script default error-reporting setting
  * @global bool $config['report_errors']
  */
@@ -36,7 +41,7 @@ $config['default_controller'] = 'main';
  * Controller used for errors (e.g. 404, 500 etc)
  * @global string $config['error_controller']
  */
-$config['error_controller'] = 'nopage';
+$config['error_controller'] = 'siterror';
 /**
  * Specifies what to load from the folder 'extras'. Make sure to load the stuff
  * which is needed by any of the controllers. The application will break if an

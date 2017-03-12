@@ -46,13 +46,6 @@ global $config;
 define('BASE_URL', $config['base_url']);
 
 /**
- * Loads all the defined extras
- */
-foreach($config['include_extras'] as $extra) {
-  require(APP_DIR .'extras/'.$extra.'.php');
-}
-
-/**
  * Sets the ini-file's display_errors variable and sets our error-reporting level.
  * Prevents the webserver's setting to cause unwanted behavior in our application.
  */
@@ -64,6 +57,20 @@ if ($config['report_errors']) {
   error_reporting(0);
 }
 
+/**#@+
+ * Set the session settings
+ */
+$session_lifetime = $config['session_lifetime'];
+session_start(['gc_maxlifetime'=>$session_lifetime]);
+setcookie(session_name(),session_id(),time()+$session_lifetime,"/","",$config['force_https'],true);
+/**#@-*/
+
+/**
+ * Loads all the defined extras
+ */
+foreach($config['include_extras'] as $extra) {
+  require(APP_DIR .'extras/'.$extra.'.php');
+}
 
 // Force redirection to HTTPS
 $https = $_SERVER['HTTPS'] ?? 'off';
