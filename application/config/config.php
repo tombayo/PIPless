@@ -7,6 +7,8 @@
  * @subpackage config
  */
 
+global $config;
+
 /**
  * Base URL including trailing slash (e.g. http://localhost/)
  * @global string $config['base_url']
@@ -41,7 +43,7 @@ $config['default_controller'] = 'main';
  * Controller used for errors (e.g. 404, 500 etc)
  * @global string $config['error_controller']
  */
-$config['error_controller'] = 'siterror';
+$config['error_controller'] = 'siteerror';
 /**
  * Specifies what to load from the folder 'extras'. Make sure to load the stuff
  * which is needed by any of the controllers. The application will break if an

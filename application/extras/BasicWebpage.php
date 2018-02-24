@@ -17,7 +17,6 @@ trait BasicWebpage {
    * Loads the view "view.classname.php", supplies some basic variables, and renders the view.
    */
   public static function index() {
-    global $config;
     $template = Load::view('view.'.__CLASS__);
     $template = self::commonTemplateVars($template);
     $template->render();
@@ -28,10 +27,10 @@ trait BasicWebpage {
   
     $view->set('controller', __CLASS__);
     $view->set('lang', $config['language']);
-    $view->set('url', function ($controller,$method='',$argument='',$get=[]) {
-      return parent::createUrl($controller,$method,$argument,$get);
+    $view->set('url', function ($controller,$method='',$get=[]) {
+      return parent::createUrl($controller,$method,$get);
     });
   
-      return $view;
+    return $view;
   }
 }
